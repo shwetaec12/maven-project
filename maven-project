@@ -6,9 +6,48 @@ pipeline
 		stage('SCM checkout')
 			{
 			steps
-      {
+      				{
 				git branch: 'master', url: 'https://github.com/shwetaec12/maven-project'
+			        }
 			}
+		stage('validate code')
+			{
+			steps
+				{
+				   withMaven(jdk:'localjdk-1.8,maven: 'localmaven')
+				    {
+				     sh 'mvn validate' 
+				    }
+				 }
 			}
+		stage('Compile code')
+			{
+			steps
+				{
+				   withMaven(jdk:'localjdk-1.8,maven: 'localmaven')
+				    {
+				     sh 'mvn compile' 
+				    }
+				 }
+			}
+			
+		stage ('Test code')
+			{
+				steps
+					{
+						withMaven(jdk:'localjdk-1.8,maven: 'localmaven')
+						 {sh 'mvn test'
+						 }
+					}
+			}
+		stage ('Package Code')
+			{
+				steps
+				{
+				 withmaven(jdk:'localjdk-1.8,maven:'localmaven')
+				 }
+			}
+			
+			
 		}
 }
