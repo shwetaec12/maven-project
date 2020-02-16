@@ -45,6 +45,9 @@ pipeline
 				steps
 				{
 				 withmaven(maven:'localmaven')
+				 {
+				 sh 'mvn package'
+				 }
 				 }
 			}
 			
