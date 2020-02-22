@@ -1,13 +1,10 @@
-pipeline
-{
-agent any{
- stage {
-	stage ('clone my code')
-		{
-			steps {
-				git branch:master'https://github.com/shwetaec12/maven-project'}
-				}
-		}
+pipeline {
+    agent any
+    stages {  
+        stage ('SCM Checkout-clone-my-code') {
+            steps {
+               git branch: 'ci-cd-pipeline', url: "https://github.com/prakashk0301/maven-project"
+         }
 	stage {
 
 		withSonarQubeEnv(credentialsId: 'c08fe7a6f20f613622ea7fb372bc887608d2c57b')
