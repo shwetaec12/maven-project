@@ -3,7 +3,7 @@ pipeline {
     stages {  
         stage ('SCM Checkout-clone-my-code') {
             steps {
-               git branch: 'ci-cd-pipeline', url: "https://github.com/prakashk0301/maven-project"
+               git branch: 'master', url: "https://github.com/shwetaec12/maven-project"
          }
 	stage {
 		steps{
