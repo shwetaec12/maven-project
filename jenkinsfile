@@ -10,7 +10,6 @@ pipeline
 				git branch: 'master', url: 'https://github.com/shwetaec12/maven-project'
 			        }
 			}
-		
 	stage {
 		steps{
 		withSonarQubeEnv(credentialsId: 'c08fe7a6f20f613622ea7fb372bc887608d2c57b')
@@ -23,6 +22,4 @@ pipeline
 		}
 	}
 			
-}
-
 }
