@@ -10,13 +10,14 @@ pipeline
 				git branch: 'master', url: 'https://github.com/shwetaec12/maven-project'
 			        }
 			}
-	stage {
+	stage ('sonar and maven)
+	{
 		steps{
-		withSonarQubeEnv(credentialsId: 'c08fe7a6f20f613622ea7fb372bc887608d2c57b')
+		withSonarQubeEnv('sonar')
 			{
 				withMaven(jdk: 'localjdk-1.8', maven: 'localmaven')
 					{
-						sh'clean mvn install sonar:sonar'
+						sh'mvn install sonar:sonar'
 					}
 			}
 		}
