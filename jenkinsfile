@@ -10,7 +10,7 @@ pipeline
 				git branch: 'master', url: 'https://github.com/shwetaec12/maven-project'
 			        }
 			}
-	stage ('sonar and maven)
+	stage ('sonar and maven')
 	{
 		steps{
 		withSonarQubeEnv('sonar')
