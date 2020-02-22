@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages {  
+        stage ('SCM Checkout-clone-my-code') {
+            steps {
+               git branch: 'ci-cd-pipeline', url: "https://github.com/prakashk0301/maven-project"
+         }
+	stage {
+		steps{
+		withSonarQubeEnv(credentialsId: 'c08fe7a6f20f613622ea7fb372bc887608d2c57b')
+			{
+				withMaven(jdk: 'localjdk-1.8', maven: 'localmaven')
+					{
+						sh'clean mvn install sonar:sonar'
+					}
+			}
+		}}
+		}}
