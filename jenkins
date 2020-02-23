@@ -21,8 +21,8 @@ pipeline
 			sh'mvn compile'
 					
 			}
-	}
-stage(Test Stage'){
+		}
+		stage(Test Stage'){
 
 		steps{
 			withMaven(maven: 'localmaven')
@@ -31,7 +31,7 @@ stage(Test Stage'){
 					
 			}
 		}
-stage(Package Stage'){
+		stage(Package Stage'){
 
 		steps{
 			withMaven(maven: 'localmaven')
@@ -39,6 +39,6 @@ stage(Package Stage'){
 			sh'mvn package'
 					
 			}
-}
-}
-}
+		}
+
+}}}}
