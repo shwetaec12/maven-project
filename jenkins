@@ -14,30 +14,25 @@ pipeline
 	parallel {
 	{
 		stage('Compile Stage'){
-
-		steps{
-			withMaven(maven: 'localmaven'){
-					
-			sh'mvn compile'
-					
+			steps{
+				withMaven(maven: 'localmaven'){
+					sh'mvn compile'		
 			}}
 		}
 		stage('Test Stage'){
 
 		steps{
-			withMaven(maven: 'localmaven'){
-					
+			withMaven(maven: 'localmaven'){		
 			sh'mvn Test'
-					
 			}}
 		}
 		stage('Package Stage'){
 
 		steps{
 			withMaven(maven: 'localmaven'){
-					
-			sh'mvn package'
-					
-			}}}}} 
+			sh'mvn package'		
+			}}
+		     }
+}}
 		failFast True
 }
