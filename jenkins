@@ -38,6 +38,6 @@ pipeline
 					
 			sh'mvn package'
 					
-			}}}}} ,
+			}}}}} 
 		failFast True
 }
