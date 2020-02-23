@@ -11,7 +11,7 @@ pipeline
 			        }
 			}
 	stage ('Parallel Stage'){
-	parallel:{
+	parallel: FirstBranch {
 	{
 		stage('Compile Stage'){
 
@@ -38,6 +38,6 @@ pipeline
 					
 			sh'mvn package'
 					
-			}}}}}
+			}}}}} ,
 		failfirst: True
 }
